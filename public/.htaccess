@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+# Redirect / to Main Page
+RewriteRule ^/*$ /w/index.php [L]
+# Short URL for wiki pages
+RewriteRule ^/?wiki(/.*)?$ /w/index.php [L]
+
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-d
+RewriteRule ^(.*)$ /w/index.php [L]
