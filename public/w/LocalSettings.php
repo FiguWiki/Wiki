@@ -176,6 +176,7 @@ $wgGroupPermissions['*']['edit'] = false;
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, e.g. 'vector' or 'monobook':
 $wgDefaultSkin = "minerva";
+//$wgDefaultSkin = "vector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
@@ -302,6 +303,55 @@ $wgDebugLogGroups['CirrusSearch'] = __DIR__."/../../.apache24/logs/cirrus-errors
 
 $wgJobRunRate = 1;
 $wgRunJobsAsync = true;
+
+
+$wgHooks['ArticleViewHeader'][] = function (Article &$article, &$outputDone, &$pcache) {
+    /** @var OutputPage $wgOut */
+    global $wgOut;
+    $wgOut->addModules(['ext.Colorbox']);
+//    $wgOut->addHTML("<a class=\"iframe cboxElement\" href=\"/assets/book/index.html\">Outside Webpage (Iframe)</a>");
+//    $wgOut->addScript(<<<HTML
+//<script>
+//$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+//$.colorbox({href: "/assets/book/index.html", iframe:true, width:"80%", height:"80%"});
+//$('.cboxElement').click(function (){return false;});
+//</script>
+//HTML
+ //   );
+     $wgOut->addHTML(<<<HTML
+<a id="book_nav" href="javascript:;"><img src="/assets/book/images/book.png"/></a>
+HTML
+);
+
+
+
+//    $wgOut->addHTML(file_get_contents(__DIR__."/../assets/book/book.tpl.html"));
+//    $wgOut->addHTML(<<<HTML
+//<a id="colorboxload" data-url="/assets/book/index.html">test colorbox</a>
+//HTML
+//);
+
+//    $wgOut->addWikiTextAsContent("{{#colorboxload:/assets/book/page.html}}");
+
+//    $wgOut->addScriptFile("/assets/book/js/turn.js");
+//    $wgOut->addScriptFile("/assets/book/js/jquery.fullscreen.js");
+//    $wgOut->addScriptFile("/assets/book/js/jquery.address-1.6.min.js");
+//    $wgOut->addScriptFile("/assets/book/js/onload.js");
+
+//    $wgOut->addHTML(file_get_contents(__DIR__."/../assets/share.htm.html"));
+    // $wgOut->addWikiTextAsContent('{{AdditionalHeader}}');
+    
+    
+    return true;
+};
+
+//require_once "$IP/extensions/tryExtension/tryExtension.php";
+require_once "$IP/extensions/Colorbox/Colorbox.php";
+
+$wgAllowSiteCSSOnRestrictedPages = true;
+wfLoadExtension( 'CSS' );
+
+
 
 
 
