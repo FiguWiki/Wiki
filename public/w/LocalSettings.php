@@ -139,8 +139,8 @@ $wgUseInstantCommons = false;
 $wgPingback = false;
 
 # Site language code, should be one of the list in ./languages/data/Names.php
-//$wgLanguageCode = "zh-cn";
-$wgLanguageCode = "en";
+$wgLanguageCode = "zh-cn";
+//$wgLanguageCode = "en";
 
 # Time zone
 $wgLocaltimezone = "PRC";
@@ -351,7 +351,7 @@ require_once "$IP/extensions/Colorbox/Colorbox.php";
 
 $wgAllowSiteCSSOnRestrictedPages = true;
 wfLoadExtension( 'CSS' );
-RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
+//RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
 
 
 //wfLoadExtension( 'LanguageSelector' );
