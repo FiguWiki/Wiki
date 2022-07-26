@@ -3,6 +3,8 @@
 namespace App;
 
 const DIR_SEP = DIRECTORY_SEPARATOR;
+define("IS_SERVER",$_SERVER && $_SERVER['SERVER_NAME'] == "figu.org.cn");
+
 
 class Kernel extends \Illuminate\Foundation\Application
 {

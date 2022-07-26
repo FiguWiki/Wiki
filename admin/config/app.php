@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -52,7 +53,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' =>  IS_SERVER ? "https://{$_SERVER['SERVER_NAME']}" : env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
