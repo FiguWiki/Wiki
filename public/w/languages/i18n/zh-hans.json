@@ -3865,7 +3865,7 @@
 	"feedback-thanks": "谢谢！您的反馈已发布至页面“[$2 $1]”。",
 	"feedback-thanks-title": "谢谢您！",
 	"feedback-useragent": "用户代理：",
-	"searchsuggest-search": "SEARCH",
+	"searchsuggest-search": "记不清? 搜一搜",
 	"searchsuggest-search_Bak": "在{{SITENAME}}搜索",
 	"searchsuggest-containing": "搜索包含此内容的页面：",
 	"search-match-redirect-label": "搜索时，跳转到完全匹配的项目",
