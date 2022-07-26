@@ -351,6 +351,10 @@ require_once "$IP/extensions/Colorbox/Colorbox.php";
 $wgAllowSiteCSSOnRestrictedPages = true;
 wfLoadExtension( 'CSS' );
 
+if(file_exists($config = __DIR__."/LocalSettings.local.php")){
+    require $config;
+}
+
 
 
 
