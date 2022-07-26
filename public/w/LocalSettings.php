@@ -359,7 +359,9 @@ if(file_exists($config = __DIR__."/LocalSettings.local.php")){
     require $config;
 }
 
-
+$wgLanguageSelectorLanguages = [  'zh-cn','en' ];
+$wgLanguageSelectorDetectLanguage = LANGUAGE_SELECTOR_PREFER_CLIENT_LANG;
+$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
 
 
 
