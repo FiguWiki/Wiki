@@ -3974,3 +3974,23 @@ Desired survivor size 17891328 bytes, new threshold 6 (max 6)
 - age   5:     724736 bytes,    5800872 total
 - age   6:    1207816 bytes,    7008688 total
 : 286120K->8691K(314560K), 0.0237469 secs] 551025K->273596K(1013632K), 0.0240069 secs] [Times: user=0.02 sys=0.14, real=0.02 secs] 
+2022-07-26T20:27:24.349+0800: 87713.918: Total time for which application threads were stopped: 0.0245540 seconds, Stopping threads took: 0.0000966 seconds
+2022-07-26T21:04:47.029+0800: 89956.598: Total time for which application threads were stopped: 0.0006160 seconds, Stopping threads took: 0.0002357 seconds
+2022-07-26T21:13:46.871+0800: 90496.440: Total time for which application threads were stopped: 0.0003691 seconds, Stopping threads took: 0.0000868 seconds
+2022-07-26T21:16:17.335+0800: 90646.904: Total time for which application threads were stopped: 0.0003808 seconds, Stopping threads took: 0.0000940 seconds
+2022-07-26T21:23:10.369+0800: 91059.938: Total time for which application threads were stopped: 0.0007323 seconds, Stopping threads took: 0.0002459 seconds
+2022-07-26T22:29:18.810+0800: 95028.380: Total time for which application threads were stopped: 0.0007736 seconds, Stopping threads took: 0.0002499 seconds
+2022-07-26T23:03:10.513+0800: 97060.089: Total time for which application threads were stopped: 0.0009032 seconds, Stopping threads took: 0.0001820 seconds
+2022-07-26T23:03:10.513+0800: 97060.090: Total time for which application threads were stopped: 0.0003052 seconds, Stopping threads took: 0.0000608 seconds
+2022-07-26T23:03:10.513+0800: 97060.091: Total time for which application threads were stopped: 0.0003871 seconds, Stopping threads took: 0.0000589 seconds
+2022-07-27T00:23:34.890+0800: 101884.482: Total time for which application threads were stopped: 0.0015811 seconds, Stopping threads took: 0.0003951 seconds
+2022-07-27T00:59:59.769+0800: 104069.352: Total time for which application threads were stopped: 0.0007306 seconds, Stopping threads took: 0.0002625 seconds
+2022-07-27T01:10:05.760+0800: 104675.343: [GC (Allocation Failure) 2022-07-27T01:10:05.760+0800: 104675.344: [ParNew
+Desired survivor size 17891328 bytes, new threshold 6 (max 6)
+- age   1:      35368 bytes,      35368 total
+- age   2:    1154968 bytes,    1190336 total
+- age   3:     275728 bytes,    1466064 total
+- age   4:     712832 bytes,    2178896 total
+- age   5:    1640312 bytes,    3819208 total
+- age   6:     724760 bytes,    4543968 total
+: 288307K->6894K(314560K), 0.0302996 secs] 553212K->272982K(1013632K), 0.0305385 secs] [Times: user=0.02 sys=0.06, real=0.03 secs] 
