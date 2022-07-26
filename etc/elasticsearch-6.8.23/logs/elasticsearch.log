@@ -1,4 +1,4 @@
-[2022-07-26T01:30:00,014][INFO ][o.e.x.m.MlDailyMaintenanceService] [wHW0VaA] triggering scheduled [ML] maintenance tasks
-[2022-07-26T01:30:00,061][INFO ][o.e.x.m.a.TransportDeleteExpiredDataAction] [wHW0VaA] Deleting expired data
-[2022-07-26T01:30:00,124][INFO ][o.e.x.m.a.TransportDeleteExpiredDataAction] [wHW0VaA] Completed deletion of expired ML data
-[2022-07-26T01:30:00,124][INFO ][o.e.x.m.MlDailyMaintenanceService] [wHW0VaA] Successfully completed [ML] maintenance tasks
+[2022-07-27T01:29:58,899][INFO ][o.e.x.m.MlDailyMaintenanceService] [wHW0VaA] triggering scheduled [ML] maintenance tasks
+[2022-07-27T01:29:58,930][INFO ][o.e.x.m.a.TransportDeleteExpiredDataAction] [wHW0VaA] Deleting expired data
+[2022-07-27T01:29:58,961][INFO ][o.e.x.m.a.TransportDeleteExpiredDataAction] [wHW0VaA] Completed deletion of expired ML data
+[2022-07-27T01:29:58,961][INFO ][o.e.x.m.MlDailyMaintenanceService] [wHW0VaA] Successfully completed [ML] maintenance tasks
