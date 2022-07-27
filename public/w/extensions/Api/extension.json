@@ -24,8 +24,14 @@
             "i18n"
         ]
     },
-    "Hooks": {
+    "Hooks.bak": {
         "PageContentLanguage": "App\\Hooks::onPageContentLanguage"
+    },
+    "Hooks": {
+        "BeforeInitialize": "App\\Hooks::onBeforeInitialize"
+    },
+    "Actions": {
+        "md": "App\\Actions\\MarkDown"
     },
     "manifest_version": 2
 }

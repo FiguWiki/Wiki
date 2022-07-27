@@ -1,13 +1,16 @@
 <?php
 
 //require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/../../public/w/vendor/autoload.php';
+//require_once __DIR__.'/../../public/w/vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
 ))->bootstrap();
 
-date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
+
+
+
+date_default_timezone_set(env('APP_TIMEZONE', 'PRC'));
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,8 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
+
+error_reporting(error_reporting() & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 
 // $app->withFacades();
 

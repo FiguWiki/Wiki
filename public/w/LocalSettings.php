@@ -357,13 +357,14 @@ $wgAllowSiteCSSOnRestrictedPages = true;
 wfLoadExtension('CSS');
 wfLoadExtension('Api');
 //RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
+\App\Hooks::Init();
 
 
 if (false) {
     wfLoadExtension('LanguageSelector');
     $wgLanguageSelectorLanguages = ['zh-cn', 'en'];
-//$wgLanguageSelectorDetectLanguage = LANGUAGE_SELECTOR_PREFER_CLIENT_LANG;
-//$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
+    //$wgLanguageSelectorDetectLanguage = LANGUAGE_SELECTOR_PREFER_CLIENT_LANG;
+    //$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
 }
 
 $wgHooks["ParserSectionCreate"][] = function ($parser, $section, &$sectionContent, $showEditLinks) {
@@ -392,6 +393,7 @@ $wgHooks["BeforePageRedirect"][] = function ($out, &$redirect, &$code) {
     }
     // die($redirect);
 };
+
 wfLoadExtension('MobileFrontend');
 $wgDefaultMobileSkin = 'minerva';
 $wgMinervaTalkAtTop['base'] = true;
