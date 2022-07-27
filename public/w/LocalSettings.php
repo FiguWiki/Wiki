@@ -390,6 +390,14 @@ $wgHooks["BeforePageRedirect"][] = function ($out, &$redirect, &$code) {
     }
     // die($redirect);
 };
+wfLoadExtension('MobileFrontend');
+$wgDefaultMobileSkin = 'minerva';
+$wgMinervaTalkAtTop['base'] = true;
+$wgMinervaAdvancedMainMenu['base'] = true;
+$wgMinervaPersonalMenu['base'] = true;
+$wgMinervaHistoryInPageActions['base'] = true;
+$wgMinervaOverflowInPageActions['base'] = true;
+$wgMinervaShowCategories['base'] = true;
 
 
 if (file_exists($config = __DIR__."/LocalSettings.local.php")) {
