@@ -28,8 +28,14 @@
         "PageContentLanguage": "App\\Hooks::onPageContentLanguage"
     },
     "Hooks": {
-        "ParserFirstCallInit": "App\\Hooks::onParserFirstCallInit",
-        "BeforeInitialize": "App\\Hooks::onBeforeInitialize"
+        "GetMagicVariableIDs": "hooks",
+        "ParserFirstCallInit": "hooks",
+        "BeforeInitialize": "hooks"
+    },
+    "HookHandlers": {
+        "hooks": {
+            "class": "App\\Hooks"
+        }
     },
     "Actions": {
         "md": "App\\Actions\\MarkDown"

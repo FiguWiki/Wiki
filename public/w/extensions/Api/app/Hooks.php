@@ -18,12 +18,22 @@ class Hooks
     }
 
     /**
+     * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetMagicVariableIDs
+     * @param string[] &$variableIDs
+     */
+    public function onGetMagicVariableIDs( &$variableIDs ) {
+        // Add the following to a wiki page to see how it works:
+        // {{MYWORD}}
+        $variableIDs[] = 'index';
+    }
+
+    /**
      * @param \Parser $parser
      * @return bool true
      * @throws \MWException
      */
     public static function onParserFirstCallInit( $parser ) {
-        $parser->setFunctionHook( 'spa', 'App\\HomePage::Render' );
+        $parser->setFunctionHook( 'index', 'App\\HomePage::Render' );
         return true;
     }
 
