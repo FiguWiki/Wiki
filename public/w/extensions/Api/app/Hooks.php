@@ -23,7 +23,7 @@ class Hooks
      * @throws \MWException
      */
     public static function onParserFirstCallInit( $parser ) {
-        $parser->setFunctionHook( 'home', 'App\\HomePage::Render' );
+        $parser->setFunctionHook( 'spa', 'App\\HomePage::Render' );
         return true;
     }
 
