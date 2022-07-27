@@ -229,7 +229,7 @@ wfLoadExtension('WikiEditor');
 $wgArticlePath = "/$1";// "/wiki/$1";
 $wgUsePathInfo = true;
 
-$actions = ['edit', 'watch', 'unwatch', 'delete', 'revert', 'rollback',
+$actions = ['edit', 'watch', 'unwatch', 'delete', 'revert', 'rollback','raw',
     'protect', 'unprotect', 'markpatrolled', 'render', 'submit', 'history', 'purge', 'info'];
 
 foreach ($actions as $action) {
