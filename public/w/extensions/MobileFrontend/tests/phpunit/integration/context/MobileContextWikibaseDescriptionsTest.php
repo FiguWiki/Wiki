@@ -5,7 +5,7 @@ use MediaWiki\MediaWikiServices;
 /**
  * @group MobileFrontend
  */
-class MobileContextWikibaseDescriptionsTest extends MediaWikiTestCase {
+class MobileContextWikibaseDescriptionsTest extends MediaWikiIntegrationTestCase {
 
 	/**
 	 * @var MobileContext
@@ -17,7 +17,7 @@ class MobileContextWikibaseDescriptionsTest extends MediaWikiTestCase {
 	 */
 	protected $config;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		// Set relevant configuration variables to their default values.

@@ -2,19 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Brazal.dang",
+			"Daramlagon",
 			"Filipinayzd",
 			"Geopoet",
 			"ShimunUfesoj"
 		]
 	},
 	"mobile-frontend-account-create-captcha-placeholder": "Ikaag an tekstong panseguridad",
-	"mobile-frontend-categories-heading": "<strong>Mga kategorya</strong>",
-	"mobile-frontend-categories-add": "Idugang sa kategoriya",
-	"mobile-frontend-categories-summary": "Pinagdugang na sa mga kategoriya",
-	"mobile-frontend-categories-add-heading": "<strong>Idugang<span> $1</span> sa baguhong mga kategoriya</strong>",
 	"mobile-frontend-changeslist-nocomment": "Mayong sumaryo nin pagliwat",
 	"mobile-frontend-clear-search": "Malinaw",
-	"mobile-frontend-contributions-404-title": "Maraot na paragamit-na-ngaran an pigtao",
 	"mobile-frontend-desc": "Magíwas na pangenotang-huri",
 	"mobile-frontend-diffview-404-desc": "An Id para sa rebisyon na saimong pinaghahagad dae tabi eksistido.",
 	"mobile-frontend-diffview-404-title": "Raot na rebisyon",
@@ -91,7 +87,8 @@
 	"mobile-frontend-talk-add-overlay-submit": "Magdugang nin diskusyon",
 	"mobile-frontend-talk-reply": "Kasimbagan",
 	"mobile-frontend-talk-reply-info": "Tandai an saimong simbag awtomatikong pinagpirmahan nin saimong ngaran-paragamit.",
-	"mobile-frontend-view": "Magíwasong patanaw",
+	"mobile-frontend-terms-text": "Mga Panundon sa Paggamit",
+	"mobile-frontend-view": "Bersyong pan-mobile",
 	"mobile-frontend-view-desktop": "Desktop",
 	"mobile-frontend-watchlist-a-z": "Listahan",
 	"mobile-frontend-watchlist-a-z-empty-howto": "Ika sa ngunyan mayong binabantayan na arinmang mga pahina. An saimong bantay-listahan makakatabang saimo na baybayon an mga pahina na ika interesadong gayo. Bantayan an mga pahina sa paagi nin pagdutdot kan ikonong bitoon.",

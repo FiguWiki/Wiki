@@ -8,8 +8,6 @@ var M = require( '../mobile.startup/moduleLoaderSingleton' ),
 	$allEditLinks = $( '#ca-edit, .mw-editsection a, .edit-link' ),
 	user = mw.user,
 	CtaDrawer = require( '../mobile.startup/CtaDrawer' ),
-	// FIXME: Disable on IE < 10 for time being
-	blacklisted = /MSIE \d\./.test( navigator.userAgent ),
 	contentModel = mw.config.get( 'wgPageContentModel' ),
 	veConfig = mw.config.get( 'wgVisualEditorConfig' ),
 	editCount = mw.config.get( 'wgUserEditCount' ),
@@ -135,7 +133,7 @@ function setupEditor( page, skin, currentPageHTMLParser, router ) {
 	overlayManager.add( editorPath, function ( sectionId ) {
 		var
 			scrollTop = window.pageYOffset,
-			$content = $( '#mw-content-text' ),
+			$contentText = $( '#mw-content-text' ),
 			editorOptions = {
 				overlayManager: overlayManager,
 				currentPageHTMLParser: currentPageHTMLParser,
@@ -148,8 +146,8 @@ function setupEditor( page, skin, currentPageHTMLParser, router ) {
 				isNewPage: isNewPage,
 				editCount: editCount,
 				oldId: mw.util.getParamValue( 'oldid' ),
-				contentLang: $content.attr( 'lang' ),
-				contentDir: $content.attr( 'dir' ),
+				contentLang: $contentText.attr( 'lang' ),
+				contentDir: $contentText.attr( 'dir' ),
 				sessionId: mw.config.get( 'wgWMESchemaEditAttemptStepSessionId' ) ||
 					mw.Uri().query.editingStatsId ||
 					user.generateRandomSessionId()
@@ -394,25 +392,27 @@ function setupEditor( page, skin, currentPageHTMLParser, router ) {
 
 	$( '#ca-edit a' ).prop( 'href', function ( i, href ) {
 		try {
-			var uri = new mw.Uri( href );
+			var editUri = new mw.Uri( href );
 			// By default the editor opens section 0 (lead section), rather than the whole article.
 			// This might be changed in the future (T210659).
-			uri.query.section = '0';
-			return uri.toString();
+			editUri.query.section = '0';
+			return editUri.toString();
 		} catch ( e ) {
 			// T106244 - the href couldn't be parsed likely due to invalid UTF-8
 			return href;
 		}
 	} );
 
-	if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.util.getParamValue( 'action' ) === 'edit' ) ) {
+	// We use wgAction instead of getParamValue('action') as the former can be
+	// overridden by hooks to stop the editor loading automatically.
+	if ( !router.getPath() && ( mw.util.getParamValue( 'veaction' ) || mw.config.get( 'wgAction' ) === 'edit' ) ) {
 		if ( mw.util.getParamValue( 'veaction' ) === 'edit' ) {
 			editorOverride = 'VisualEditor';
 		} else if ( mw.util.getParamValue( 'veaction' ) === 'editsource' ) {
 			editorOverride = 'SourceEditor';
 		}
 		// else: action=edit, for which we allow the default to take effect
-		fragment = '#/editor/' + ( mw.util.getParamValue( 'section' ) || ( mw.util.getParamValue( 'action' ) === 'edit' && 'all' ) || '0' );
+		fragment = '#/editor/' + ( mw.util.getParamValue( 'section' ) || ( mw.config.get( 'wgAction' ) === 'edit' ? 'all' : '0' ) );
 		// eslint-disable-next-line no-restricted-properties
 		if ( window.history && history.pushState ) {
 			uri = mw.Uri();
@@ -527,7 +527,7 @@ function bindEditLinksSorryToast( msg, router ) {
 module.exports = function ( currentPage, currentPageHTMLParser, skin ) {
 	var isMissing = currentPage.id === 0,
 		router = mw.loader.require( 'mediawiki.router' ),
-		isEditingSupported = router.isSupported() && !blacklisted;
+		isEditingSupported = router.isSupported();
 
 	if ( contentModel !== 'wikitext' ) {
 		// Only load the wikitext editor on wikitext. Otherwise we'll rely on the fallback behaviour
@@ -541,7 +541,7 @@ module.exports = function ( currentPage, currentPageHTMLParser, skin ) {
 	}
 
 	if ( !isEditingSupported ) {
-		// Browser doesn't support mobile editor (or is blacklisted), use the fallback editor.
+		// Browser doesn't support mobile editor use the fallback editor.
 		return;
 	}
 

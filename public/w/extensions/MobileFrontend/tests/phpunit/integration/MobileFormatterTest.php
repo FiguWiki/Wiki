@@ -8,10 +8,10 @@ use MobileFrontend\Transforms\SubHeadingTransform;
 /**
  * @group MobileFrontend
  */
-class MobileFormatterTest extends MediaWikiTestCase {
+class MobileFormatterTest extends MediaWikiIntegrationTestCase {
 	private const TOC = '<div id="toc" class="toc-mobile"><h2>Contents</h2></div>';
 	// phpcs:ignore Generic.Files.LineLength.TooLong
-	private const SECTION_INDICATOR = '<div class="mw-ui-icon mw-ui-icon-element indicator mw-ui-icon-small mw-ui-icon-flush-left"></div>';
+	private const SECTION_INDICATOR = '<div class="mw-ui-icon mw-ui-icon-element indicator mw-ui-icon-small mw-ui-icon-flush-left mw-ui-button mw-ui-quiet"></div>';
 	private const HATNOTE_CLASSNAME = 'hatnote';
 	private const INFOBOX_CLASSNAME = 'infobox';
 
@@ -25,7 +25,7 @@ class MobileFormatterTest extends MediaWikiTestCase {
 	 */
 	private $mfContext;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$services = \MediaWiki\MediaWikiServices::getInstance();

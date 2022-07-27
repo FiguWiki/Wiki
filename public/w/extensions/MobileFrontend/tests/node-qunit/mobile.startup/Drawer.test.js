@@ -44,7 +44,7 @@ QUnit.test( 'visible on show()', function ( assert ) {
 		done = assert.async(),
 		onShow = () => {
 			assertVisible( subject );
-			assert.ok( true );
+			assert.true( true );
 			done();
 		},
 		subject = new Drawer( {} );
@@ -59,7 +59,7 @@ QUnit.test( 'accepts onShow and events', function ( assert ) {
 	const
 		done = assert.async(),
 		onShow = () => {
-			assert.ok( true );
+			assert.true( true );
 			done();
 		},
 		subject = new Drawer( {
@@ -77,7 +77,7 @@ QUnit.test( 'hidden on hide()', function ( assert ) {
 		done = assert.async(),
 		onBeforeHide = () => {
 			assertHidden( subject );
-			assert.ok( true );
+			assert.true( true );
 			done();
 		},
 		subject = new Drawer( { onBeforeHide } );
@@ -90,7 +90,7 @@ QUnit.test( 'hidden on mask click', function ( assert ) {
 		done = assert.async(),
 		onBeforeHide = () => {
 			assertHidden( subject );
-			assert.ok( true );
+			assert.true( true );
 			done();
 		},
 		subject = new Drawer( { onBeforeHide } );
@@ -103,7 +103,7 @@ QUnit.test( 'HTML is valid', function ( assert ) {
 	const subject = new Drawer( {} );
 	assert.strictEqual(
 		subject.$el.find( '.drawer' ).get( 0 ).outerHTML,
-		'<div class="drawer drawer-container__drawer position-fixed"><div class="mw-ui-icon mw-ui-icon-mf-expand mw-ui-icon-element   cancel"></div></div>'
+		'<div class="drawer drawer-container__drawer position-fixed"><div class="mw-ui-icon mw-ui-icon-element mw-ui-icon-mf-expand cancel mw-ui-button mw-ui-quiet  "></div></div>'
 	);
 } );
 

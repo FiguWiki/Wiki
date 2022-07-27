@@ -9,7 +9,7 @@ use MobileFrontend\Models\MobilePage;
  * @coversDefaultClass \MobileFrontend\Models\MobilePage
  * @covers ::__construct()
  */
-class MobilePageTest extends MediaWikiTestCase {
+class MobilePageTest extends MediaWikiIntegrationTestCase {
 	// Timestamp from MW format to Unix format
 	// TS_MW is '20181028200709' and to Unix gives
 	// '1540757229' using the wfTimestamp() function.
@@ -26,7 +26,7 @@ class MobilePageTest extends MediaWikiTestCase {
 	 * @return File
 	 */
 	private function mockFileFactory( $height ) {
-		$file = $this->getMockBuilder( 'File' )
+		$file = $this->getMockBuilder( File::class )
 			->disableOriginalConstructor()
 			->onlyMethods( [ 'getUrl', 'getHeight', 'getWidth', 'transform' ] )
 			->getMock();
@@ -75,12 +75,17 @@ class MobilePageTest extends MediaWikiTestCase {
 
 		if ( $testUser ) {
 			$userId = $testUser->getUser()->getId();
+			$userName = $testUser->getUser()->getName();
 
 			$userIdentity = $this->createMock( \MediaWiki\User\UserIdentity::class );
 
 			$userIdentity->expects( $this->any() )
 				->method( 'getId' )
 				->willReturn( $userId );
+
+			$userIdentity->expects( $this->any() )
+				->method( 'getName' )
+				->willReturn( $userName );
 
 			$revisionRecordMock->expects( $this->atLeastOnce() )
 				->method( 'getUser' )

@@ -11,7 +11,7 @@ module.exports = function fakeToolbar() {
 
 	$loadingMessage = icons.spinner( {
 		tagName: 'span',
-		hasText: true,
+		type: 'before',
 		additionalClassNames: '',
 		label: mw.msg( 'mobile-frontend-editor-loading' )
 	} ).$el;
@@ -22,7 +22,7 @@ module.exports = function fakeToolbar() {
 		.append( $( '<div>' )
 			.addClass( 've-mobile-fakeToolbar-header' )
 			// Minerva has some complicated styling for this class, so we have to include it
-			.addClass( 'header' )
+			.addClass( 'overlay-header' )
 			.append( $( '<div>' )
 				.addClass( 've-mobile-fakeToolbar' )
 				.append( $goBack, $loadingMessage )

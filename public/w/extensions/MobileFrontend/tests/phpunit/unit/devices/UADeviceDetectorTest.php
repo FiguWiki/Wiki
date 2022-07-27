@@ -20,7 +20,7 @@ class UADeviceDetectorTest extends \MediaWikiUnitTestCase {
 	 */
 	private $request;
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->detector = new UADeviceDetector();
@@ -36,7 +36,7 @@ class UADeviceDetectorTest extends \MediaWikiUnitTestCase {
 	 */
 	private static function provideUserAgents( $userAgents ) {
 		return array_map(
-			function ( $userAgent ) {
+			static function ( $userAgent ) {
 				return [ $userAgent ];
 			},
 			$userAgents

@@ -3,30 +3,13 @@
 /**
  * @group MobileFrontend
  */
-class MobileSpecialPageTest extends MediaWikiTestCase {
-	protected function setUp() : void {
+class MobileSpecialPageTest extends MediaWikiIntegrationTestCase {
+	protected function setUp(): void {
 		parent::setUp();
 		$this->setMwGlobals( 'wgScript', '/wiki/index.php' );
 	}
 
-	/**
-	 * @param string $class
-	 * @param string $subPage
-	 * @param array $params
-	 * @param string|null $expected
-	 * @covers SpecialMobileHistory::getDesktopUrl
-	 * @covers SpecialMobileDiff::getDesktopUrl
-	 * @dataProvider provideGetDesktopUrl
-	 */
-	public function testGetDesktopUrl( $class, $subPage, array $params, $expected ) {
-		$context = new RequestContext();
-		$context->setRequest( new FauxRequest( $params ) );
-		$page = new $class;
-		$page->setContext( $context );
-		$this->assertEquals( $expected, $page->getDesktopUrl( $subPage ) );
-	}
-
-	public function provideGetDesktopUrl() {
+	public function provideGetDesktopUrlForMobileHistory() {
 		return [
 			[
 				'SpecialMobileHistory',
@@ -46,6 +29,32 @@ class MobileSpecialPageTest extends MediaWikiTestCase {
 				[ 'offset' => '100500' ],
 				'/wiki/index.php?title=Pagename&action=history&offset=100500',
 			],
+		];
+	}
+
+	/**
+	 * @param string $class
+	 * @param string $subPage
+	 * @param array $params
+	 * @param string|null $expected
+	 * @covers SpecialMobileHistory::getDesktopUrl
+	 * @covers SpecialMobileDiff::getDesktopUrl
+	 * @dataProvider provideGetDesktopUrlForMobileHistory
+	 */
+	public function testGetDesktopUrlWithMobileHistory( $class, $subPage, array $params, $expected ) {
+		$context = new RequestContext();
+		$context->setRequest( new FauxRequest( $params ) );
+		$page = new $class(
+			$this->getServiceContainer()->getNamespaceInfo(),
+			$this->getServiceContainer()->getRevisionFactory(),
+			$this->getServiceContainer()->getRevisionStore()
+		);
+		$page->setContext( $context );
+		$this->assertEquals( $expected, $page->getDesktopUrl( $subPage ) );
+	}
+
+	public function provideGetDesktopUrlForMobileDiff() {
+		return [
 			[
 				'SpecialMobileDiff',
 				'100',
@@ -59,5 +68,22 @@ class MobileSpecialPageTest extends MediaWikiTestCase {
 				'/wiki/index.php?diff=101&oldid=100&unhide=1',
 			],
 		];
+	}
+
+	/**
+	 * @param string $class
+	 * @param string $subPage
+	 * @param array $params
+	 * @param string|null $expected
+	 * @covers SpecialMobileHistory::getDesktopUrl
+	 * @covers SpecialMobileDiff::getDesktopUrl
+	 * @dataProvider provideGetDesktopUrlForMobileDiff
+	 */
+	public function testGetDesktopUrlWithMobileDiff( $class, $subPage, array $params, $expected ) {
+		$context = new RequestContext();
+		$context->setRequest( new FauxRequest( $params ) );
+		$page = new $class( $this->getServiceContainer()->getRevisionLookup() );
+		$page->setContext( $context );
+		$this->assertEquals( $expected, $page->getDesktopUrl( $subPage ) );
 	}
 }

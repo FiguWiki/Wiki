@@ -5,7 +5,7 @@ use MediaWiki\MediaWikiServices;
 /**
  * @group MobileFrontend
  */
-class MobileContextTest extends MediaWikiTestCase {
+class MobileContextTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * PHP 5.3.2 introduces the ReflectionMethod::setAccessible() method to allow the invocation of
 	 * protected and private methods directly through the Reflection API
@@ -21,7 +21,7 @@ class MobileContextTest extends MediaWikiTestCase {
 		return $method;
 	}
 
-	protected function tearDown() : void {
+	protected function tearDown(): void {
 		parent::tearDown();
 
 		MobileContext::resetInstanceForTesting();
@@ -67,15 +67,13 @@ class MobileContextTest extends MediaWikiTestCase {
 		] );
 		$invokes = 0;
 		$context = $this->makeContext();
-		$asserter = $this;
 		$this->setTemporaryHook(
 			'GetMobileUrl',
 			function ( &$string, $hookCtx ) use (
-					$asserter,
 					&$invokes,
 					$context
 				) {
-					$asserter->assertEquals( $context, $hookCtx );
+					$this->assertEquals( $context, $hookCtx );
 					$invokes++;
 			}
 		);

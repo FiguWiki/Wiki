@@ -31,9 +31,6 @@ QUnit.module( 'MobileFrontend mobile.editor.overlay/SourceEditorOverlay', {
 		sandbox.stub( SourceEditorOverlay.prototype, 'log' ).returns( util.Deferred().resolve() );
 		messageStub = sandbox.stub( BlockMessageDetails.prototype, 'initialize' );
 		getContentStub = sandbox.stub( EditorGateway.prototype, 'getContent' );
-		// avoid waiting to load 'moment',
-		// using `expiry: 'infinity'` below ensures we don't need it
-		sandbox.stub( mw.loader, 'using' ).withArgs( 'moment' ).returns( util.Deferred().resolve() );
 		sandbox.stub( mw, 'confirmCloseWindow' ).returns( {
 			release: function () {}
 		} );
@@ -84,7 +81,7 @@ QUnit.test( '#initialize, blocked user', function ( assert ) {
 		title: 'test.css'
 	}, dBlockedContent ).getLoadingPromise().then( () => {}, function () {
 		done();
-		assert.ok(
+		assert.true(
 			messageStub.calledWithMatch( {
 				partial: false,
 				creator: {
@@ -153,7 +150,7 @@ QUnit.test( '#initialize, as anonymous', function ( assert ) {
 	// SourceEditorOverlay triggers a call to _loadContent so will always start an async request.
 	// Make this test async to ensure it finishes and doesn't cause side effects to other functions.
 	return getContentStub().then( function () {
-		assert.ok( editorOverlay.$anonWarning.length > 0, 'Editorwarning (IP will be saved) visible.' );
-		assert.ok( editorOverlay.$el.find( '.anonymous' ).length > 0, 'Continue login has a second class.' );
+		assert.true( editorOverlay.$anonWarning.length > 0, 'Editorwarning (IP will be saved) visible.' );
+		assert.true( editorOverlay.$el.find( '.anonymous' ).length > 0, 'Continue login has a second class.' );
 	} );
 } );

@@ -54,7 +54,7 @@ class MakeSectionsTransform implements IMobileTransform {
 	}
 
 	/**
-	 * Actually splits splits the body of the document into sections
+	 * Actually splits the body of the document into sections
 	 *
 	 * @param DOMElement $body representing the HTML of the current article. In the HTML the sections
 	 *  should not be wrapped.
@@ -94,7 +94,7 @@ class MakeSectionsTransform implements IMobileTransform {
 			if ( $node->nodeName === $firstHeadingName ) {
 				// The heading we are transforming is always 1 section ahead of the
 				// section we are currently processing
-				/** @phan-suppress-next-line PhanTypeMismatchArgument DOMNode vs. DOMElement */
+				/** @phan-suppress-next-line PhanTypeMismatchArgumentSuperType DOMNode vs. DOMElement */
 				$this->prepareHeading( $body->ownerDocument, $node, $sectionNumber + 1, $this->scriptsEnabled );
 				// Insert the previous section body and reset it for the new section
 				$container->insertBefore( $sectionBody, $node );

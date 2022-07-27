@@ -5,15 +5,15 @@ use MediaWiki\MediaWikiServices;
 /**
  * @group MobileFrontend
  */
-class MobileFrontendHooksTest extends MediaWikiTestCase {
-	protected function setUp() : void {
+class MobileFrontendHooksTest extends MediaWikiIntegrationTestCase {
+	protected function setUp(): void {
 		parent::setUp();
 
 		MobileContext::resetInstanceForTesting();
 	}
 
 	/**
-	 * Test findTagLine when output has no wikibase elements
+	 * Test findTagline when output has no wikibase elements
 	 *
 	 * @covers MobileFrontendHooks::findTagline
 	 */
@@ -22,17 +22,17 @@ class MobileFrontendHooksTest extends MediaWikiTestCase {
 		$fallback = function () {
 			$this->fail( 'Fallback shouldn\'t be called' );
 		};
-		$this->assertFalse( MobileFrontendHooks::findTagline( $po, $fallback ) );
+		$this->assertNull( MobileFrontendHooks::findTagline( $po, $fallback ) );
 	}
 
 	/**
-	 * Test findTagLine when output has no wikibase elements
+	 * Test findTagline when output has no wikibase elements
 	 *
 	 * @covers MobileFrontendHooks::findTagline
 	 */
 	public function testFindTaglineWhenItemIsNotPresent() {
 		$poWithDesc = new ParserOutput();
-		$poWithDesc->setProperty( 'wikibase-shortdesc', 'desc' );
+		$poWithDesc->setPageProperty( 'wikibase-shortdesc', 'desc' );
 
 		$fallback = function () {
 			$this->fail( 'Fallback shouldn\'t be called' );
@@ -41,7 +41,7 @@ class MobileFrontendHooksTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Test findTagLine when output has no wikibase elements
+	 * Test findTagline when output has no wikibase elements
 	 *
 	 * @covers MobileFrontendHooks::findTagline
 	 */
@@ -52,7 +52,7 @@ class MobileFrontendHooksTest extends MediaWikiTestCase {
 		};
 
 		$poWithItem = new ParserOutput();
-		$poWithItem->setProperty( 'wikibase_item', 'W2' );
+		$poWithItem->setPageProperty( 'wikibase_item', 'W2' );
 		$this->assertSame(
 			'Hello Wikidata',
 			MobileFrontendHooks::findTagline( $poWithItem, $fallback )
@@ -60,7 +60,7 @@ class MobileFrontendHooksTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * Test findTagLine when output has no wikibase elements
+	 * Test findTagline when output has no wikibase elements
 	 *
 	 * @covers MobileFrontendHooks::findTagline
 	 */
@@ -70,8 +70,8 @@ class MobileFrontendHooksTest extends MediaWikiTestCase {
 		};
 
 		$poWithBoth = new ParserOutput();
-		$poWithBoth->setProperty( 'wikibase-shortdesc', 'Hello world' );
-		$poWithBoth->setProperty( 'wikibase_item', 'W2' );
+		$poWithBoth->setPageProperty( 'wikibase-shortdesc', 'Hello world' );
+		$poWithBoth->setPageProperty( 'wikibase_item', 'W2' );
 		$this->assertSame(
 			'Hello world',
 			MobileFrontendHooks::findTagline( $poWithBoth, $fallback )

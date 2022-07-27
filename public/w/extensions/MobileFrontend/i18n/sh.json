@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BadDog",
 			"Conquistador",
 			"OC Ripper",
 			"Vlad5250"
@@ -8,22 +9,10 @@
 	},
 	"abusefilter-edit-builder-vars-user-mobile": "Uređuje li korisnikot od mobilnoga sučelja",
 	"mobile-frontend-account-create-captcha-placeholder": "Unesite kôd za potvrdu",
-	"mobile-frontend-categories-heading": "<strong>Kategorije</strong>",
-	"mobile-frontend-categories-subheading": "Stranica pripada sljedećim kategorijama:",
-	"mobile-frontend-categories-nocat": "Ova stranica za sad ne pripada nijednoj kategoriji.",
-	"mobile-frontend-categories-add": "Stavi u kategoriju",
-	"mobile-frontend-categories-search": "Pretraži kategorije",
-	"mobile-frontend-categories-nodata": "Došlo je do greške. Jeste li dodali kategorije za sačuvanje?",
-	"mobile-frontend-categories-summary": "Stavljeno u kategorije",
-	"mobile-frontend-categories-add-heading": "<strong>Stavljena<span> $1</span> u nove kategorije</strong>",
-	"mobile-frontend-categories-add-wait": "Spremanje kategorija, molimo pričekajte.",
-	"mobile-frontend-categories-normal": "Sadržinske",
-	"mobile-frontend-categories-hidden": "Organizacijske",
 	"mobile-frontend-changeslist-nocomment": "nema sažetka uređivanja",
 	"mobile-frontend-cite-error": "Pojavio se problem pri pokušaju da učitam citate zbog neispravne naznake izmjenete.",
 	"mobile-frontend-cite-none-available": "Na ovoj stranici nema citata.",
 	"mobile-frontend-clear-search": "Očisti",
-	"mobile-frontend-contributions-404-desc": "Ne mogu tražiti doprinose bez korisnika ili s nepostojećim korisnikom.",
 	"mobile-frontend-copyright": "Sadržaj je dostupan pod $1 osim ako je drugačije navedeno.",
 	"mobile-frontend-desc": "Sučelje za mobilne uređaje",
 	"mobile-frontend-diffview-404-desc": "Zahtijevana naznaka izmjene ne postoji",
@@ -119,7 +108,6 @@
 	"mobile-frontend-references-citation-error": "Došlo je do greške. Nije bilo moguće učitati ovu referencu.",
 	"mobile-frontend-references-list": "Cijeli spisak sa referencama",
 	"mobile-frontend-requires-mobile": "Ova stranica nije dostupna s običnim prikazom. Smijenite na mobilni prikaz na dnu stranice.",
-	"mobile-frontend-requires-optin": "Stranicava nije dostupna ako ne izaberite da koristite beta-mogućnoste. Ovo možete da učinite u [[Special:MobileOptions|postavkama]].",
 	"mobile-frontend-requires-title": "Stranica nije dostupna",
 	"mobile-frontend-return-to-page": "Nazad na stranicu",
 	"mobile-frontend-save-error": "Greška prilikom čuvanja postavki. Provjerite jeste li omogućili kolačiće.",
@@ -133,6 +121,6 @@
 	"mobile-frontend-watchlist-filter-other": "Ostale",
 	"mobile-frontend-watchlist-filter-talk": "Razgovor",
 	"mobile-frontend-watchlist-more": "više",
-	"tag-mobile_edit": "Mobilno uređivanje",
-	"tag-mobile_web_edit": "Web izmjena mobilnim uređajem"
+	"tag-mobile_edit": "mobilno uređivanje",
+	"tag-mobile_web_edit": "mobilno veb-uređivanje"
 }

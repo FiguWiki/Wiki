@@ -32,7 +32,7 @@ function timeAgo( timestampDelta ) {
  * @return {{value: number, unit: string}}
  */
 function getTimeAgoDelta( timestamp ) {
-	var currentTimestamp = Math.round( new Date().getTime() / 1000 );
+	var currentTimestamp = Math.round( Date.now() / 1000 );
 
 	return timeAgo( currentTimestamp - timestamp );
 }
@@ -68,13 +68,14 @@ function isNow( delta ) {
  * @instance
  * @param {number} ts timestamp
  * @param {string} username of the last user to modify the page
- * @param {string} [gender] of the last user to modify the page
- * @param {string} [historyUrl] url to the history page for the message, if omitted
- *  returns plain text string rather than html
+ * @param {string} gender of the last user to modify the page
+ * @param {string} historyUrl url to the history page for the message (deprecated)
  * @return {string}
  */
 function getLastModifiedMessage( ts, username, gender, historyUrl ) {
-	var delta, html,
+	var delta,
+		lastEditedElement, usernameElement,
+		linkAll = typeof historyUrl === 'undefined',
 		keys = {
 			seconds: 'mobile-frontend-last-modified-with-user-seconds',
 			minutes: 'mobile-frontend-last-modified-with-user-minutes',
@@ -96,20 +97,23 @@ function getLastModifiedMessage( ts, username, gender, historyUrl ) {
 		);
 	}
 
+	lastEditedElement = linkAll ?
+		util.parseHTML( '<strong>' ).attr( 'class', 'last-modified-text-accent' ) :
+		util.parseHTML( '<a>' ).attr( 'href', historyUrl || '#' );
+	usernameElement = linkAll ?
+		util.parseHTML( '<span>' ).attr( 'class', 'last-modified-text-accent' ) :
+		util.parseHTML( '<a>' ).attr( 'href', mw.util.getUrl( 'User:' + username ) );
+
 	args.push(
-		historyUrl || '#',
+		lastEditedElement,
 		// Abuse PLURAL support to determine if the user is anonymous or not
 		mw.language.convertNumber( username ? 1 : 0 ),
 		// Our abuse of PLURAL support means we have to pass the relative URL
 		// rather than construct it from a wikilink
-		username ? mw.util.getUrl( 'User:' + username ) : ''
+		username ? usernameElement : ''
 	);
-	html = mw.message.apply( this, args ).parse();
-	if ( historyUrl ) {
-		return html;
-	} else {
-		return util.parseHTML( '<div>' ).html( html ).text();
-	}
+
+	return mw.message.apply( this, args ).parse();
 }
 
 /**

@@ -5,8 +5,10 @@
 			"BaRaN6161 TURK",
 			"Incelemeelemani",
 			"MuratTheTurkish",
+			"SaldırganSincap",
 			"Sezgin İbiş",
-			"Vito Genovese"
+			"Vito Genovese",
+			"Cobija"
 		]
 	},
 	"apihelp-mobileview-description": "Mobil görünümler için gerekli verileri döndürür.",
@@ -30,11 +32,11 @@
 	"apihelp-mobileview-param-thumbheight": "Maksimum küçük resim yüksekliği.",
 	"apihelp-mobileview-param-revision": "Belirli bir revizyon isteyin.",
 	"apihelp-mobileview-example-1": "[[Doom metal]] sayfasının 0 bölümü hakkında bilgi alın",
-	"apihelp-mobileview-example-2": "Bölüm 0 ve [[Candlemass]] kaynakçadını içeren bölümler hakkında bilgi alın",
+	"apihelp-mobileview-example-2": "Bölüm 0 ve [[Candlemass]] kaynakçaları içeren bölümler hakkında bilgi alın",
 	"apihelp-mobileview-example-3": "1 ve sonraki bölümler ve [[Candlemass]] kaynakçaları içeren bölümler hakkında bilgi alın",
 	"apihelp-parse-param-mobileformat": "Ayrıştırma çıkışını mobil cihazlar için uygun bir biçimde döndür.",
 	"apihelp-parse-param-noimages": "Mobil çıkışındaki resimleri devre dışı bırakın.",
-	"apihelp-parse-param-mainpage": "Mobil ana sayfa dönüşümlerini uygulayın.",
+	"apihelp-parse-param-mainpage": "Mobil anasayfa dönüşümlerini uygulayın.",
 	"apihelp-webapp-manifest-description": "Bir web uygulaması bildirimi döndürür.",
 	"apihelp-webapp-manifest-summary": "Bir web uygulaması bildirimi döndürür.",
 	"apierror-mobilefrontend-badidtitle": "Hatalı revizyon kimliği/başlık kombinasyonu.",

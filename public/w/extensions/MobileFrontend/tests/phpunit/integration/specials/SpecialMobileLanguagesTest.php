@@ -1,12 +1,11 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerInterface;
 
 /**
  * @group MobileFrontend
  */
-class SpecialMobileLanguagesTest extends MediaWikiTestCase {
+class SpecialMobileLanguagesTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * Data provider for testProcessLanguages
 	 */
@@ -48,12 +47,6 @@ class SpecialMobileLanguagesTest extends MediaWikiTestCase {
 				'langname' => 'Simple English'
 			] + $input['simple']
 		];
-
-		// Transform URLs to mobile version, which is dependent on wgMobileUrlTemplate
-		$ctx = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-		foreach ( $expected as $key => &$value ) {
-			$value['url'] = $ctx->getMobileUrl( $value['url'] );
-		}
 
 		return [
 			[
@@ -132,10 +125,19 @@ class SpecialMobileLanguagesTest extends MediaWikiTestCase {
 				'langlinks' => $langlinks
 			]
 		];
-		$services = MediaWikiServices::getInstance();
+
+		$services = $this->getServiceContainer();
+		$mobileContext = $services->getService( 'MobileFrontend.Context' );
+
+		// Transform URLs to mobile version, which is dependent on wgMobileUrlTemplate
+		array_walk( $expected, static function ( $value ) use ( $mobileContext ) {
+			return $mobileContext->getMobileUrl( $value[ 'url' ] );
+		} );
+
 		$sp = new SpecialMobileLanguages(
 			$services->getLanguageConverterFactory(),
-			$services->getLanguageNameUtils()
+			$services->getLanguageNameUtils(),
+			$mobileContext
 		);
 		$class = new ReflectionClass( SpecialMobileLanguages::class );
 		$method = $class->getMethod( 'processLanguages' );
