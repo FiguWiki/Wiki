@@ -306,7 +306,9 @@ $wgDebugLogGroups['CirrusSearch'] = __DIR__."/../../.apache24/logs/cirrus-errors
 
 $wgJobRunRate = 1;
 $wgRunJobsAsync = true;
-$wgUseSiteJs = true;
+//$wgUseSiteJs = true;
+//js 里面 wgXXX 可以直接用 否则要用get config
+$wgLegacyJavaScriptGlobals=true;
 
 
 $wgHooks["UserGetLanguageObject"][] = function ($user, &$code) {
