@@ -151,6 +151,7 @@ function wfLanguageSelectorGetLanguageCode( $user, &$code ) {
 	if ( $setlang && !in_array( $setlang, wfGetLanguageSelectorLanguages() ) ) {
 		$setlang = null; // ignore invalid
 	}
+    
 
 	if ( $setlang ) {
 		$wgRequest->response()->setcookie( 'LanguageSelectorLanguage', $setlang );

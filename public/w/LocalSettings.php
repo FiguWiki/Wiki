@@ -139,8 +139,8 @@ $wgUseInstantCommons = false;
 $wgPingback = false;
 
 # Site language code, should be one of the list in ./languages/data/Names.php
-$wgLanguageCode = "zh-cn";
-//$wgLanguageCode = "en";
+//$wgLanguageCode = "zh-cn";
+$wgLanguageCode = "en";
 
 # Time zone
 $wgLocaltimezone = "PRC";
@@ -355,8 +355,8 @@ wfLoadExtension( 'Api' );
 //RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
 
 
-//wfLoadExtension( 'LanguageSelector' );
-//$wgLanguageSelectorLanguages = [  'zh-cn','en' ];
+wfLoadExtension( 'LanguageSelector' );
+$wgLanguageSelectorLanguages = [  'zh-cn','en' ];
 //$wgLanguageSelectorDetectLanguage = LANGUAGE_SELECTOR_PREFER_CLIENT_LANG;
 //$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
 
