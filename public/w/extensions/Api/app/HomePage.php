@@ -9,7 +9,7 @@ class HomePage
      * @param string $params
      * @return string
      */
-    public static function Render( &$parser, $params): string
+    public static function Render( &$parser): string
     {
         return "test";
     }
