@@ -15,7 +15,7 @@ if (!defined('MEDIAWIKI')) {
     exit;
 }
 
-error_reporting(error_reporting() & ~E_NOTICE & ~E_DEPRECATED);
+error_reporting(error_reporting() & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 
 empty($IP) && $IP = __DIR__;
 
@@ -363,6 +363,33 @@ if (false) {
 //$wgLanguageSelectorDetectLanguage = LANGUAGE_SELECTOR_PREFER_CLIENT_LANG;
 //$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
 }
+
+$wgHooks["ParserSectionCreate"][] = function ($parser, $section, &$sectionContent, $showEditLinks) {
+    if ($section && $sectionContent) {
+        if (preg_match("/<span (.+?) id=\"(.+?)\"/s", $sectionContent, $out)) {
+            $hash = md5($out[2]);
+            $sectionContent = str_replace($out[0], "<span {$out[1]} id=\"{$hash}\"", $sectionContent);
+            //var_dump($hash);
+        }
+//        if (preg_match("/<span(.*?)id=\"(.+?)\"/s", $sectionContent, $out)) {
+//            $hash = md5(rawurldecode($out[2]));
+//            $sectionContent = str_replace($out[0], "<span{$out[1]}id=\"{$hash}\"", $sectionContent);
+//            //var_dump($hash);
+//        }
+        // die($sectionContent);
+        
+    }
+};
+
+$wgHooks["BeforePageRedirect"][] = function  ( $out, &$redirect, &$code ){
+    if (preg_match("/#(.+?)$/", $redirect, $out)) {
+       // die(rawurldecode($out[1]));
+        $hash = md5(rawurldecode($out[1]) );
+        $redirect = str_replace($out[1], $hash, $redirect);
+        //var_dump($hash);
+    }
+ // die($redirect);
+};
 
 
 if (file_exists($config = __DIR__."/LocalSettings.local.php")) {
