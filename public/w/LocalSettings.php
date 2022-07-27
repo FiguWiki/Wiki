@@ -306,6 +306,8 @@ $wgDebugLogGroups['CirrusSearch'] = __DIR__."/../../.apache24/logs/cirrus-errors
 
 $wgJobRunRate = 1;
 $wgRunJobsAsync = true;
+$wgUseSiteJs = true;
+
 
 $wgHooks["UserGetLanguageObject"][] = function ($user, &$code) {
     $code = "zh-cn";
