@@ -322,10 +322,12 @@ $wgHooks['ArticleViewHeader'][] = function (Article &$article, &$outputDone, &$p
 //</script>
 //HTML
     //   );
-    $wgOut->addHTML(<<<HTML
+    if (defined("BOOK_NAV")) {
+        $wgOut->addHTML(<<<HTML
 <a id="book_nav" href="javascript:;"><img src="/assets/book/images/book.png"/></a>
 HTML
-    );
+        );
+    }
 
 
 //    $wgOut->addHTML(file_get_contents(__DIR__."/../assets/book/book.tpl.html"));
