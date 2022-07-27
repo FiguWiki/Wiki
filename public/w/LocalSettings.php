@@ -367,7 +367,7 @@ if (false) {
 $wgHooks["ParserSectionCreate"][] = function ($parser, $section, &$sectionContent, $showEditLinks) {
     if ($section && $sectionContent) {
         if (preg_match("/<span (.+?) id=\"(.+?)\"/s", $sectionContent, $out)) {
-            $hash = md5($out[2]);
+            $hash = substr(md5($out[2]), 0, 12);
             $sectionContent = str_replace($out[0], "<span {$out[1]} id=\"{$hash}\"", $sectionContent);
             //var_dump($hash);
         }
@@ -381,14 +381,14 @@ $wgHooks["ParserSectionCreate"][] = function ($parser, $section, &$sectionConten
     }
 };
 
-$wgHooks["BeforePageRedirect"][] = function  ( $out, &$redirect, &$code ){
+$wgHooks["BeforePageRedirect"][] = function ($out, &$redirect, &$code) {
     if (preg_match("/#(.+?)$/", $redirect, $out)) {
-       // die(rawurldecode($out[1]));
-        $hash = md5(rawurldecode($out[1]) );
+        // die(rawurldecode($out[1]));
+        $hash = substr(md5(rawurldecode($out[1])), 0, 12);
         $redirect = str_replace($out[1], $hash, $redirect);
         //var_dump($hash);
     }
- // die($redirect);
+    // die($redirect);
 };
 
 
