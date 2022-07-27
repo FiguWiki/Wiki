@@ -18,8 +18,9 @@ class Hooks
     }
 
     /**
-     * @param Parser $parser
+     * @param \Parser $parser
      * @return bool true
+     * @throws \MWException
      */
     public static function onParserFirstCallInit( $parser ) {
         $parser->setFunctionHook( 'home', 'App\\HomePage::Render' );
