@@ -11,7 +11,7 @@ class HomePage
      */
     public static function Render( &$parser): string
     {
-        return "test";
+        return "";
     }
 
 }
