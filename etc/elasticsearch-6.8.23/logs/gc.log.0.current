@@ -3994,3 +3994,34 @@ Desired survivor size 17891328 bytes, new threshold 6 (max 6)
 - age   5:    1640312 bytes,    3819208 total
 - age   6:     724760 bytes,    4543968 total
 : 288307K->6894K(314560K), 0.0302996 secs] 553212K->272982K(1013632K), 0.0305385 secs] [Times: user=0.02 sys=0.06, real=0.03 secs] 
+2022-07-27T01:10:05.791+0800: 104675.374: Total time for which application threads were stopped: 0.0316216 seconds, Stopping threads took: 0.0001047 seconds
+2022-07-27T01:29:58.915+0800: 105868.510: Total time for which application threads were stopped: 0.0009555 seconds, Stopping threads took: 0.0002923 seconds
+2022-07-27T01:29:58.930+0800: 105868.515: Total time for which application threads were stopped: 0.0007635 seconds, Stopping threads took: 0.0002094 seconds
+2022-07-27T01:29:58.930+0800: 105868.523: Total time for which application threads were stopped: 0.0006236 seconds, Stopping threads took: 0.0002692 seconds
+2022-07-27T01:29:58.946+0800: 105868.531: Total time for which application threads were stopped: 0.0009720 seconds, Stopping threads took: 0.0002599 seconds
+2022-07-27T01:29:58.946+0800: 105868.538: Total time for which application threads were stopped: 0.0007038 seconds, Stopping threads took: 0.0003588 seconds
+2022-07-27T01:29:58.946+0800: 105868.542: Total time for which application threads were stopped: 0.0004843 seconds, Stopping threads took: 0.0002210 seconds
+2022-07-27T01:29:58.946+0800: 105868.544: Total time for which application threads were stopped: 0.0004607 seconds, Stopping threads took: 0.0002017 seconds
+2022-07-27T01:29:58.961+0800: 105868.545: Total time for which application threads were stopped: 0.0002974 seconds, Stopping threads took: 0.0001404 seconds
+2022-07-27T01:29:58.961+0800: 105868.547: Total time for which application threads were stopped: 0.0002607 seconds, Stopping threads took: 0.0001241 seconds
+2022-07-27T01:53:35.019+0800: 107284.605: Total time for which application threads were stopped: 0.0006201 seconds, Stopping threads took: 0.0001174 seconds
+2022-07-27T04:02:09.761+0800: 114999.344: Total time for which application threads were stopped: 0.0041349 seconds, Stopping threads took: 0.0012656 seconds
+2022-07-27T04:21:40.429+0800: 116170.012: Total time for which application threads were stopped: 0.0008883 seconds, Stopping threads took: 0.0003703 seconds
+2022-07-27T04:26:39.647+0800: 116469.231: Total time for which application threads were stopped: 0.0007085 seconds, Stopping threads took: 0.0002656 seconds
+2022-07-27T04:35:09.823+0800: 116979.407: Total time for which application threads were stopped: 0.0005345 seconds, Stopping threads took: 0.0002688 seconds
+2022-07-27T04:36:40.218+0800: 117069.801: Total time for which application threads were stopped: 0.0006714 seconds, Stopping threads took: 0.0002006 seconds
+2022-07-27T07:54:35.581+0800: 128945.180: Total time for which application threads were stopped: 0.0024505 seconds, Stopping threads took: 0.0000999 seconds
+2022-07-27T07:54:35.597+0800: 128945.208: Total time for which application threads were stopped: 0.0006871 seconds, Stopping threads took: 0.0000778 seconds
+2022-07-27T07:54:36.616+0800: 128946.213: Total time for which application threads were stopped: 0.0003798 seconds, Stopping threads took: 0.0000905 seconds
+2022-07-27T08:01:03.322+0800: 129332.930: Total time for which application threads were stopped: 0.0008577 seconds, Stopping threads took: 0.0001766 seconds
+2022-07-27T08:01:03.322+0800: 129332.931: Total time for which application threads were stopped: 0.0004063 seconds, Stopping threads took: 0.0000675 seconds
+2022-07-27T08:06:02.873+0800: 129632.472: Total time for which application threads were stopped: 0.0024362 seconds, Stopping threads took: 0.0001424 seconds
+2022-07-27T08:31:04.432+0800: 131134.030: [GC (Allocation Failure) 2022-07-27T08:31:04.463+0800: 131134.063: [ParNew
+Desired survivor size 17891328 bytes, new threshold 6 (max 6)
+- age   1:     120440 bytes,     120440 total
+- age   2:       1744 bytes,     122184 total
+- age   3:    1152728 bytes,    1274912 total
+- age   4:     274160 bytes,    1549072 total
+- age   5:     712240 bytes,    2261312 total
+- age   6:    1638224 bytes,    3899536 total
+: 286510K->4989K(314560K), 0.2029907 secs] 552598K->271785K(1013632K), 0.2363442 secs] [Times: user=0.27 sys=0.34, real=0.23 secs] 

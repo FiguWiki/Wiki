@@ -351,6 +351,7 @@ require_once "$IP/extensions/Colorbox/Colorbox.php";
 
 $wgAllowSiteCSSOnRestrictedPages = true;
 wfLoadExtension( 'CSS' );
+wfLoadExtension( 'Api' );
 //RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
 
 
