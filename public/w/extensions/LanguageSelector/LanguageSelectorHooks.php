@@ -92,6 +92,11 @@ class LanguageSelectorHooks {
 		if ( $setlang && !in_array( $setlang, self::getLanguageSelectorLanguages() ) ) {
 			$setlang = null; // ignore invalid
 		}
+        
+        $setlang or $setlang = "zh-cn";
+        
+$code = "zh-cn";
+  
 
 		if ( $setlang ) {
 			$wgRequest->response()->setcookie( 'LanguageSelectorLanguage', $setlang );

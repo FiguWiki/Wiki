@@ -152,6 +152,7 @@ function wfLanguageSelectorGetLanguageCode( $user, &$code ) {
 		$setlang = null; // ignore invalid
 	}
     
+    $setlang or $setlang = "zh-cn";
 
 	if ( $setlang ) {
 		$wgRequest->response()->setcookie( 'LanguageSelectorLanguage', $setlang );
