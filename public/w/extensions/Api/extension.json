@@ -25,10 +25,10 @@
         ]
     },
     "Hooks.bak": {
+        "GetMagicVariableIDs": "hooks",
         "PageContentLanguage": "App\\Hooks::onPageContentLanguage"
     },
     "Hooks": {
-        "GetMagicVariableIDs": "hooks",
         "ParserFirstCallInit": "hooks",
         "BeforeInitialize": "hooks"
     },

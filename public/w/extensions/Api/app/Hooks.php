@@ -29,12 +29,12 @@ class Hooks
 
     /**
      * @param \Parser $parser
-     * @return bool true
+     * @return void true
      * @throws \MWException
      */
-    public static function onParserFirstCallInit( $parser ) {
-        $parser->setFunctionHook( 'index', 'App\\HomePage::Render' );
-        return true;
+    public static function onParserFirstCallInit(\Parser $parser ) {
+        $parser->setFunctionHook( 'index', [HomePage::class,'Render'] );
+       // return true;
     }
 
 
