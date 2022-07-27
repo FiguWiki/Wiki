@@ -305,6 +305,9 @@ $wgDebugLogGroups['CirrusSearch'] = __DIR__."/../../.apache24/logs/cirrus-errors
 $wgJobRunRate = 1;
 $wgRunJobsAsync = true;
 
+$wgHooks["UserGetLanguageObject"][] = function ($user, &$code) {
+    $code = "zh-cn";
+};
 
 $wgHooks['ArticleViewHeader'][] = function (Article &$article, &$outputDone, &$pcache) {
     /** @var OutputPage $wgOut */
@@ -318,12 +321,11 @@ $wgHooks['ArticleViewHeader'][] = function (Article &$article, &$outputDone, &$p
 //$('.cboxElement').click(function (){return false;});
 //</script>
 //HTML
- //   );
-     $wgOut->addHTML(<<<HTML
+    //   );
+    $wgOut->addHTML(<<<HTML
 <a id="book_nav" href="javascript:;"><img src="/assets/book/images/book.png"/></a>
 HTML
-);
-
+    );
 
 
 //    $wgOut->addHTML(file_get_contents(__DIR__."/../assets/book/book.tpl.html"));
@@ -350,20 +352,20 @@ HTML
 require_once "$IP/extensions/Colorbox/Colorbox.php";
 
 $wgAllowSiteCSSOnRestrictedPages = true;
-wfLoadExtension( 'CSS' );
-wfLoadExtension( 'Api' );
+wfLoadExtension('CSS');
+wfLoadExtension('Api');
 //RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
 
 
-wfLoadExtension( 'LanguageSelector' );
-$wgLanguageSelectorLanguages = [  'zh-cn','en' ];
+if (false) {
+    wfLoadExtension('LanguageSelector');
+    $wgLanguageSelectorLanguages = ['zh-cn', 'en'];
 //$wgLanguageSelectorDetectLanguage = LANGUAGE_SELECTOR_PREFER_CLIENT_LANG;
 //$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
+}
 
 
-
-
-if(file_exists($config = __DIR__."/LocalSettings.local.php")){
+if (file_exists($config = __DIR__."/LocalSettings.local.php")) {
     require $config;
 }
 
