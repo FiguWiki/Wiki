@@ -17,6 +17,17 @@ class Hooks
         $wgActionPaths["md"] = "$wgArticlePath/md";
     }
 
+    /**
+     * @param Parser $parser
+     * @return bool true
+     */
+    public static function onParserFirstCallInit( $parser ) {
+        $parser->setFunctionHook( 'home', 'App\\HomePage::Render' );
+        return true;
+    }
+
+
+
     public static function onBeforeInitialize(\Title &$title, $unused, \OutputPage $output, \User $user, \WebRequest $request, \MediaWiki $mediaWiki)
     {
 
