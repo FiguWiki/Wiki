@@ -19,6 +19,8 @@ error_reporting(error_reporting() & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECAT
 
 empty($IP) && $IP = __DIR__;
 
+$serverIp = "192.168.1.4";
+
 
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
@@ -114,7 +116,7 @@ $wgSharedTables[] = "actor";
 
 ## Shared memory settings
 $wgMainCacheType = CACHE_MEMCACHED;
-$wgMemCachedServers = ['172.20.128.1:11211'];
+$wgMemCachedServers = ["{$serverIp}:11211"];
 
 #$wgMainCacheType = CACHE_MEMCACHED;
 $wgParserCacheType = CACHE_MEMCACHED; # optional
@@ -296,7 +298,7 @@ wfLoadExtension('ExternalData');
 
 wfLoadExtension('Elastica');
 wfLoadExtension('CirrusSearch');
-$wgCirrusSearchServers = [["host" => "172.20.128.1", 'port' => 9200]];
+$wgCirrusSearchServers = [["host" => $serverIp, 'port' => 9200]];
 $wgSearchType = 'CirrusSearch';
 $wgDebugLogGroups['CirrusSearch'] = __DIR__."/../../.apache24/logs/cirrus-errors.log";
 
@@ -356,6 +358,7 @@ require_once "$IP/extensions/Colorbox/Colorbox.php";
 $wgAllowSiteCSSOnRestrictedPages = true;
 wfLoadExtension('CSS');
 wfLoadExtension('Api');
+//wfLoadExtension('examples');
 //RequestContext::getMain()->getRequest()->setVal('uselang', 'zh-cn');
 \App\Hooks::Init();
 

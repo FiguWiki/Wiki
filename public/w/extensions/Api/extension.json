@@ -29,10 +29,14 @@
         "PageContentLanguage": "App\\Hooks::onPageContentLanguage"
     },
     "Hooks": {
-        "ParserFirstCallInit": "hooks",
-        "BeforeInitialize": "hooks"
+        "ParserFirstCallInit": "App\\Hooks::onParserFirstCallInit",
+        "BeforeInitialize": "handleHooks"
     },
     "HookHandlers": {
+        "handleHooks": {
+            "class": "App\\Hooks",
+            "services": [ "PermissionManager" ]
+        },
         "hooks": {
             "class": "App\\Hooks"
         }
