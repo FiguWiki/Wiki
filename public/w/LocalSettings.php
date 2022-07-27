@@ -360,6 +360,8 @@ wfLoadExtension( 'CSS' );
 //$wgLanguageSelectorLocation = LANGUAGE_SELECTOR_IN_TOOLBOX;
 
 
+
+
 if(file_exists($config = __DIR__."/LocalSettings.local.php")){
     require $config;
 }
