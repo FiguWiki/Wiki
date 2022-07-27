@@ -28,7 +28,7 @@
         "PageContentLanguage": "App\\Hooks::onPageContentLanguage"
     },
     "Hooks": {
-        "ParserFirstCallInit": "App\\HomePage::Render",
+        "ParserFirstCallInit": "App\\Hooks::onParserFirstCallInit",
         "BeforeInitialize": "App\\Hooks::onBeforeInitialize"
     },
     "Actions": {
